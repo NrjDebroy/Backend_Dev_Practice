@@ -10,10 +10,8 @@ func password_Hash(Password string) (string, error) {
 
 	bytes, err := bcrypt.GenerateFromPassword([]byte(Password), 8)
 
-	if err != nil { //if not error returning the hash , Operaation stopped
-		panic(err)
 	}
-	return string(bytes), nil
+	return string(bytes), err
 }
 
 func check_Password(password_Hash, password string) bool {
